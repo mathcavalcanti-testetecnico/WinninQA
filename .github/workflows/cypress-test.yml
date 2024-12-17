@@ -1,0 +1,36 @@
+name: Run Cypress Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Escolha o ambiente para execução dos testes'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checkout do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Passo 3: Instalar dependências do projeto
+      - name: Install dependencies
+        run: npm install
+
+      # Passo 4: Rodar os testes Cypress (API e Wikipedia)
+      - name: Run Cypress tests
+        run: npm run test
