@@ -31,7 +31,13 @@ jobs:
         run: npm install
 
       - name: Install Cypress binary
-        run: npx cypress install
+        run: npm install cypress
+
+      - name: Grant Cypress Execution Permissions
+        run: chmod +x node_modules/.bin/cypress
+
+      - name: Clean npm cache (optional)
+        run: npm cache clean --force
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --record 
