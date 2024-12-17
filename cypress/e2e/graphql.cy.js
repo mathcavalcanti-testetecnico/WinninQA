@@ -36,8 +36,6 @@ describe('API GraphQLZero - Testes de Usuários', () => {
         }
       `;
 
-  // Cenário 1: Criar um novo usuário
-
       cy.request({
         method: 'POST',
         url: graphqlEndpoint,
