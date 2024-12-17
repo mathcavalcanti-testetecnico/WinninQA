@@ -4,9 +4,8 @@
   "description": "Desafio Tecnico Winnin",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "open": "cypress open",
-    "cypress:run": "cypress run"
+  "test": "npx cypress run",
+  "open": "npx cypress open"
   },
   "keywords": [
     "cypress",
